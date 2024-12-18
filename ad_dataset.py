@@ -35,7 +35,7 @@ xgb_model = XGBClassifier(
     n_estimators=500,
     learning_rate=0.01,
     max_depth=5,
-    subsample=1.0,
+    subsample=0.8,
     colsample_bytree=1.0,
     random_state=42
 )
@@ -99,14 +99,4 @@ plt.title('ROC Curve for XGBoost')
 plt.legend(loc='lower right')
 plt.show()
 
-# Precision-Recall Curve
-precision, recall, thresholds = precision_recall_curve(y_test, y_test_proba)
 
-plt.figure(figsize=(8, 6))
-plt.plot(recall, precision, label="XGBoost", color="b")
-plt.xlabel("Recall")
-plt.ylabel("Precision")
-plt.title("Precision-Recall Curve for XGBoost")
-plt.legend(loc="best")
-plt.grid()
-plt.show()
